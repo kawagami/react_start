@@ -1,9 +1,21 @@
 
-const userName = 'kawagami';
-const addLocation = '中興大學';
-const action = '上課';
+const shadow = {
+    boxShadow: '0 0 10px 10px #eaeaea',
+    padding: 20,
+}
 
 
-const VDOM = <h1>{userName}在{addLocation}{action}</h1>
-ReactDOM.render(VDOM, document.getElementById('test'))
+const VDOM = () => (
+    // return
+    <div className="container" style={shadow}>
+        <div className="chevron chevron-up">
+        </div>
+        <div className="number">
+            256
+        </div>
+        <div className="chevron chevron-down">
+        </div>
+    </div>
+)
+ReactDOM.render(<VDOM />, document.getElementById('root'))
 
