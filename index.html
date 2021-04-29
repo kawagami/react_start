@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Computer</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+
+    <div id="test"></div>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- <script type="text/babel" src="./js/index.js"> -->
+    <script type="text/babel">
+        class StockClac extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {
+                    priceBuy: '',
+                    priceSell: '',
+                    stock: '',
+                    feeBuyAmount: '',
+                    feeSellAmount: '',
+                    taxAmount: '',
+                    result: '',
+                    cost: '',
+                    got: '',
+                    computerButton: '計算',
+                    fee: 0.001425,
+                    tax: 0.003,
+                    discount: 0.28,
+                }
+            }
+            // componentDidMount(){
+            //     alert('Yes')
+            // }
+
+            buyHandle(e) {
+                this.setState({
+                    priceBuy: e.target.value
+                })
+            }
+
+            sellHandle(e) {
+                this.setState({
+                    priceSell: e.target.value
+                })
+            }
+
+            stockHandle(e) {
+                this.setState({
+                    stock: e.target.value
+                })
+            }
+            computer() {
+
+                let amount = (this.state.priceSell - this.state.priceBuy) * this.state.stock
+                let got = Math.floor(this.state.priceSell * this.state.stock * (1 - ((this.state.fee * this.state.discount) + this.state.tax)))
+                let cost = Math.floor(this.state.priceBuy * this.state.stock * (1 + (this.state.fee * this.state.discount)))
+                let feeBuyAmount = Math.floor(this.state.priceBuy * this.state.stock * (this.state.fee * this.state.discount))
+                let feeSellAmount = Math.floor(this.state.priceSell * this.state.stock * (this.state.fee * this.state.discount))
+                this.setState({
+                    result: got - cost,
+                    feeBuyAmount: feeBuyAmount,
+                    feeSellAmount: feeSellAmount,
+                    taxAmount: Math.floor(this.state.priceSell * this.state.stock * this.state.tax),
+                    got: got,
+                    cost: cost,
+                })
+            }
+
+            render() {
+                return (
+                    <div className="container">
+                        買價<input type="number" onChange={this.buyHandle.bind(this)} />
+                        賣價<input type="number" onChange={this.sellHandle.bind(this)} />
+                        股數<input type="number" onChange={this.stockHandle.bind(this)} />
+                        <div className="cost">購入成本 : {this.state.cost}</div>
+                        <div className="got">賣出取得 : {this.state.got}</div>
+                        <div className="fee-buy">買入手續費 : {this.state.feeBuyAmount}</div>
+                        <div className="fee-sell">賣出手續費 : {this.state.feeSellAmount}</div>
+                        <div className="tax">交易稅 : {this.state.taxAmount}</div>
+                        <div className="result">淨利 : {this.state.result}</div>
+                        <button onClick={this.computer.bind(this)}>{this.state.computerButton}</button>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<StockClac />, document.getElementById('test'))
+
+    </script>
+</body>
+
+</html>
