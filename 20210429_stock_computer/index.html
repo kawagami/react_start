@@ -58,6 +58,12 @@
                     stock: e.target.value
                 })
             }
+            toCurrency(num) {
+                var parts = num.toString().split('.');
+                parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+                return parts.join('.');
+            }
+
             computer() {
 
                 let amount = (this.state.priceSell - this.state.priceBuy) * this.state.stock
@@ -70,8 +76,8 @@
                     feeBuyAmount: feeBuyAmount,
                     feeSellAmount: feeSellAmount,
                     taxAmount: Math.floor(this.state.priceSell * this.state.stock * this.state.tax),
-                    got: got,
-                    cost: cost,
+                    got: this.toCurrency(got),
+                    cost: this.toCurrency(cost),
                 })
             }
 
