@@ -1,4 +1,66 @@
-*{
+$baseFontSize:1.5rem;
+
+* {
     margin: 0;
     padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+
+    #test {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .container {
+            span {
+                margin: 0 0 0.5rem 0;
+                font-size: $baseFontSize;
+
+                input {
+                    height: 1.5rem;
+                    margin: 0 1rem 0.5rem 0.3rem;
+                }
+            }
+
+            .cost {
+                margin: 0 0 0.5rem 0;
+                font-size: $baseFontSize;
+            }
+
+            .got {
+                margin: 0 0 0.5rem 0;
+                font-size: $baseFontSize;
+            }
+
+            .fee-buy {
+                margin: 0 0 0.5rem 0;
+                font-size: $baseFontSize;
+            }
+
+            .fee-sell {
+                margin: 0 0 0.5rem 0;
+                font-size: $baseFontSize;
+            }
+
+            .tax {
+                margin: 0 0 0.5rem 0;
+                font-size: $baseFontSize;
+            }
+
+            .result {
+                margin: 0 0 0.5rem 0;
+                font-size: $baseFontSize;
+            }
+
+            button {
+                font-size: 1.5rem;
+                padding: 0.5rem 3rem;
+            }
+        }
+    }
 }

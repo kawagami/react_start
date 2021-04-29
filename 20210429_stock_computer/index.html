@@ -78,9 +78,9 @@
             render() {
                 return (
                     <div className="container">
-                        買價<input type="number" onChange={this.buyHandle.bind(this)} />
-                        賣價<input type="number" onChange={this.sellHandle.bind(this)} />
-                        股數<input type="number" onChange={this.stockHandle.bind(this)} />
+                        <span>買價<input type="number" onChange={this.buyHandle.bind(this)} /></span>
+                        <span>賣價<input type="number" onChange={this.sellHandle.bind(this)} /></span>
+                        <span>股數<input type="number" onChange={this.stockHandle.bind(this)} /></span>
                         <div className="cost">購入成本 : {this.state.cost}</div>
                         <div className="got">賣出取得 : {this.state.got}</div>
                         <div className="fee-buy">買入手續費 : {this.state.feeBuyAmount}</div>

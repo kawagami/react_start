@@ -2,4 +2,68 @@
   margin: 0;
   padding: 0;
 }
+
+body {
+  width: 100%;
+  height: 100vh;
+}
+
+body #test {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body #test .container span {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+body #test .container span input {
+  height: 1.5rem;
+  margin: 0 1rem 0.5rem 0.3rem;
+}
+
+body #test .container .cost {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+body #test .container .got {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+body #test .container .fee-buy {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+body #test .container .fee-sell {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+body #test .container .tax {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+body #test .container .result {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+body #test .container button {
+  font-size: 1.5rem;
+  padding: 0.5rem 3rem;
+}
 /*# sourceMappingURL=index.css.map */
