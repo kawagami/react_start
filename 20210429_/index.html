@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+
+    <div id="test"></div>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+        class Timer extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = { seconds: 0 };
+            }
+
+            tick() {
+                this.setState(state => ({
+                    seconds: state.seconds + 1
+                }));
+            }
+
+            componentDidMount() {
+                this.interval = setInterval(() => this.tick(), 1000);
+            }
+
+            componentWillUnmount() {
+                console.log(this);
+                clearInterval(this.interval);
+            }
+
+            render() {
+                return (
+                    <div>
+                        Seconds: {this.state.seconds}
+                        <button onClick={this.ttt}>ttt</button>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <Timer />,
+            document.getElementById('test')
+        );
+    </script>
+</body>
+
+</html>
