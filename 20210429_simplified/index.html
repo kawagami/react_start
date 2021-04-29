@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+
+    <div id="test"></div>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+        class Weather extends React.Component {
+            state = {isHot: true}
+
+            changeWeather = () => {
+                this.setState({ isHot: !this.state.isHot })
+            }
+
+            render() {
+                return <h1 onClick={this.changeWeather}>今天天氣很{this.state.isHot ? '炎熱' : '寒冷'}</h1>
+            }
+        }
+
+        ReactDOM.render(<Weather />, document.getElementById('test'))
+
+    </script>
+</body>
+
+</html>
