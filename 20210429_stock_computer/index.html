@@ -72,10 +72,10 @@
                 let feeBuyAmount = Math.floor(this.state.priceBuy * this.state.stock * (this.state.fee * this.state.discount))
                 let feeSellAmount = Math.floor(this.state.priceSell * this.state.stock * (this.state.fee * this.state.discount))
                 this.setState({
-                    result: got - cost,
-                    feeBuyAmount: feeBuyAmount,
-                    feeSellAmount: feeSellAmount,
-                    taxAmount: Math.floor(this.state.priceSell * this.state.stock * this.state.tax),
+                    result: this.toCurrency(got - cost),
+                    feeBuyAmount: this.toCurrency(feeBuyAmount),
+                    feeSellAmount: this.toCurrency(feeSellAmount),
+                    taxAmount: this.toCurrency(Math.floor(this.state.priceSell * this.state.stock * this.state.tax)),
                     got: this.toCurrency(got),
                     cost: this.toCurrency(cost),
                 })
