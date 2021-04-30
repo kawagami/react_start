@@ -21,5 +21,5 @@
     2. 在class 中constructor 是否要接props 且 傳props給super 取決於是否要在constructor 中使用 this.props
     3. ref 使用方法有三種
         a. string 形式 : 會造成效率不佳，官方不推薦使用
-        b. callback 形式 : 
+        b. callback 形式 : 值的存取不是放在this.refs{} 算是利用ref 會自動callback的性質附值在instance 身上
         c. createRef API 形式 : 
