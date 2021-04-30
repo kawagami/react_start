@@ -18,4 +18,8 @@
     1. 展開運算符 ...object
         在原生JS下 let object2 = {...object} 是代表複製一份資料給object2
         在react + babel 的情況下(只)可以在標籤內加{...object}使用，在此的含意是展開其內容
-    2. 在class 中constructor 是否要接props 且 傳props給super 取決於是否要在constructor 中使用 this.props 
+    2. 在class 中constructor 是否要接props 且 傳props給super 取決於是否要在constructor 中使用 this.props
+    3. ref 使用方法有三種
+        a. string 形式 : 會造成效率不佳，官方不推薦使用
+        b. callback 形式 : 
+        c. createRef API 形式 : 
