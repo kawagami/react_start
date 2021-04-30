@@ -14,3 +14,7 @@
     2. 在constructor 中的this.state = {xxx:xxx...} 可寫在外層，state = {xxx:xxx...} 的型式。
         需要接值的話還是得靠在constructor
 
+20210430
+    1. 展開運算符 ...object
+        在原生JS下 let object2 = {...object} 是代表複製一份資料給object2
+        在react + babel 的情況下(只)可以在標籤內加{...object}使用，在此的含意是展開其內容
