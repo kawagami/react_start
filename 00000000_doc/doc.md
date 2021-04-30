@@ -22,4 +22,6 @@
     3. ref 使用方法有三種
         a. string 形式 : 會造成效率不佳，官方不推薦使用
         b. callback 形式 : 值的存取不是放在this.refs{} 算是利用ref 會自動callback的性質附值在instance 身上
-        c. createRef API 形式 : 
+        c. createRef API 形式 : 會將使用此容器的node 存回容器，要取值的話 容器.current.value
+            用React.createRef() 產生的容器只能存一筆資料，後面再call 同一個容器的話會被後面的資料覆蓋過去
+            要存一筆資料就要有一個容器
