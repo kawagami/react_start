@@ -25,3 +25,6 @@
         c. createRef API 形式 : 會將使用此容器的node 存回容器，要取值的話 容器.current.value
             用React.createRef() 產生的容器只能存一筆資料，後面再call 同一個容器的話會被後面的資料覆蓋過去
             要存一筆資料就要有一個容器
+    4. react class 中的 methods 第一個參數是被call 當下的event
+        在form 中被call 的狀況可在method 內的第一行執行event.preventDefault() 來停止form 預設的get 傳參
+
