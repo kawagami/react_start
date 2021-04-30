@@ -18,6 +18,7 @@
     <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.7.2/prop-types.js"></script>
     <script type="text/babel">
         class Person extends React.Component {
             render() {
@@ -32,12 +33,23 @@
             }
 
         }
-        const data1 = {name:'金城武',age:33,gender:'男'}
-        const data2 = {name:'福山雅治',age:121,gender:'男'}
-        const data3 = {name:'劉德華',age:33,gender:'男'}
-        ReactDOM.render(<Person {...data1}/>, document.getElementById('test'))
-        ReactDOM.render(<Person {...data2}/>, document.getElementById('test2'))
-        ReactDOM.render(<Person {...data3}/>, document.getElementById('test3'))
+        // 對類型作限制
+        Person.propTypes = {
+            name: PropTypes.string.isRequired,
+            gender: PropTypes.string,
+            age: PropTypes.number,
+        }
+        // 給予預設值
+        Person.defaultProps = {
+            gender: '中性',
+            age: 18
+        }
+        const data1 = { name: '金城武', age: 33 }
+        const data2 = { name: '福山雅治', gender: '男' }
+        const data3 = { name: '劉德華', age: 33, gender: '男' }
+        ReactDOM.render(<Person {...data1} />, document.getElementById('test'))
+        ReactDOM.render(<Person {...data2} />, document.getElementById('test2'))
+        ReactDOM.render(<Person {...data3} />, document.getElementById('test3'))
 
     </script>
 </body>
