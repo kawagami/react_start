@@ -1,6 +1,6 @@
 覺得是重點的筆記
 
-20210428
+#20210428
     1. setState() 存回class 的值不一定會當下更新成最新的，找到的消息是說為了效能考量，有許多不同的解法，最重要的是要知道有這件事!!!
     2. class 裡面的methods 開啟了嚴格模式(use strick)，不透過instance直接調用this 會是undefine
         想用this 要bind綁定後才有this 能用，不然會是undefine
@@ -31,5 +31,19 @@
 20210501
     1. Uncontrolled Component 隨傳隨用，主要使用refs 取得外部傳入的資料使用，官網推薦少用refs (效能問題)
     2. Controlled Component 儲存後需要時再取用，使用state 配合onChange...等等的事件處理達成目的
+    3. 在 onChange={this.saveFormData} 這種語句中，代表將class 內的方法saveFormData 交給react 在該事件時幫我call
+        onChange={this.saveFormData(parament)} 寫了小括號後react 會call 的部份是**該方法的return 部份**
+
+        ```js
+        // parament 是小括號傳入的參數
+        // event 是react 包好的SyntheticEvent 當下element 的object
+        savaFormData = (parament) => {
+            return (event) => {
+                this.setState({ [parament]: event.target.value })
+            }
+        }
+        ```
+    
+
 
 

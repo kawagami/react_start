@@ -28,21 +28,21 @@
                 console.log(e);
                 // 阻止form submit
                 e.preventDefault()
+                alert(`帳號 : ${this.state.account} 密碼 : ${this.state.password}`)
             }
 
-            savaAccount = (event) => {
-                this.setState({ account: event.target.value })
-            }
-
-            savaPassword = (event) => {
-                this.setState({ password: event.target.value })
+            savaFormData = (dataType) => {
+                return (event) => {
+                    console.log(event);
+                    this.setState({ [dataType]: event.target.value })
+                }
             }
 
             render() {
                 return (
                     <form action="" onSubmit={this.handleSubmit}>
-                        帳號<input onChange={this.savaAccount} type="text" />
-                        密碼<input onChange={this.savaPassword} type="password" />
+                        帳號<input onChange={this.savaFormData('account')} type="text" />
+                        密碼<input onChange={this.savaFormData('password')} type="password" />
                         <button>登入</button>
                     </form>
                 )
