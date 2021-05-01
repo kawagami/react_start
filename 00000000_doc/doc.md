@@ -28,3 +28,8 @@
     4. react class 中的 methods 第一個參數是被call 當下的event
         在form 中被call 的狀況可在method 內的第一行執行event.preventDefault() 來停止form 預設的get 傳參
 
+20210501
+    1. Uncontrolled Component 隨傳隨用，主要使用refs 取得外部傳入的資料使用，官網推薦少用refs (效能問題)
+    2. Controlled Component 儲存後需要時再取用，使用state 配合onChange...等等的事件處理達成目的
+
+

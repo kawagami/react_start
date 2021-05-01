@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+
+    <div id="test"></div>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+        class Login extends React.Component {
+
+            state = {
+                account: '',
+                password: ''
+            }
+
+            handleSubmit = (e) => {
+                console.log(e);
+                // 阻止form submit
+                e.preventDefault()
+            }
+
+            savaAccount = (event) => {
+                this.setState({ account: event.target.value })
+            }
+
+            savaPassword = (event) => {
+                this.setState({ password: event.target.value })
+            }
+
+            render() {
+                return (
+                    <form action="" onSubmit={this.handleSubmit}>
+                        帳號<input onChange={this.savaAccount} type="text" />
+                        密碼<input onChange={this.savaPassword} type="password" />
+                        <button>登入</button>
+                    </form>
+                )
+            }
+        }
+
+        ReactDOM.render(<Login />, document.getElementById('test'))
+
+    </script>
+</body>
+
+</html>
