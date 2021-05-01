@@ -32,16 +32,18 @@
     1. Uncontrolled Component 隨傳隨用，主要使用refs 取得外部傳入的資料使用，官網推薦少用refs (效能問題)
     2. Controlled Component 儲存後需要時再取用，使用state 配合onChange...等等的事件處理達成目的
     3. 在 onChange={this.saveFormData} 這種語句中，代表將class 內的方法saveFormData 交給react 在該事件時幫我call
-        1. onChange={this.saveFormData(parament)} 寫了小括號後react 會call 的部份是**該方法的return 部份**
+        1. onChange={this.saveFormData(parameter)} 寫了小括號後react 會call 的部份是**該方法的return 部份**
         ```js
-        // parament 是小括號傳入的參數
+        // parameter 是小括號傳入的參數
         // event 是react 包好的SyntheticEvent 當下element 的object
-        savaFormData = (parament) => {
+        savaFormData = (parameter) => {
             return (event) => {
-                this.setState({ [parament]: event.target.value })
+                this.setState({ [parameter]: event.target.value })
             }
         }
         ```
+        2. 所以如果return 部份是一個function 就能達成在onChange={} 中填入this.saveFormData(parameter) 這種形式
+            1. 此狀況下return 的function 每次在其元素改變的時候就會被調用(reference)，且react 幫我調用的時候都會把包好的event 放進第一個參數
     
 
 

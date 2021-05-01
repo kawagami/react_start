@@ -32,10 +32,13 @@
             }
 
             savaFormData = (dataType) => {
-                return (event) => {
-                    console.log(event);
-                    this.setState({ [dataType]: event.target.value })
+                return (e)=>{
+                    console.log(e)
                 }
+                // return (event) => {
+                //     console.log(event);
+                //     this.setState({ [dataType]: event.target.value })
+                // }
             }
 
             render() {
