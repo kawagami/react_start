@@ -52,5 +52,6 @@
         3. return false 時 componentWillUpdate、render、componentDidUpdate、componentWillUnmount 皆不會被call
     2. componentWillUpdate <= forceUpdate()
         1. 不受shouldComponentUpdate return false 的阻擋，可強制更新。用於沒更新state 也要更新的狀況...之類的。
-
+    3. parent component
+        1. componentWillReceiveProps 在**初次render 頁面的時候不會被call**
 
