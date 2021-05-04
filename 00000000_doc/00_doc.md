@@ -45,6 +45,11 @@
         2. 所以如果return 部份是一個function 就能達成在onChange={} 中填入this.saveFormData(parameter) 這種形式
             1. 此狀況下return 的function 每次在其元素改變的時候就會被調用(reference)，且react 幫我調用的時候都會把包好的event 放進第一個參數
     
-
+- 20210504
+    1. shouldComponentUpdate <= setState()
+        1. return 必須為true or false
+        2. 預設為true
+        3. return false 時 componentWillUpdate、render、componentDidUpdate、componentWillUnmount 皆不會被call
+    2. componentWillUpdate <= forceUpdate()
 
 

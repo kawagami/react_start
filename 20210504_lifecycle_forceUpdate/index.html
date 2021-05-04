@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+
+    <div id="test"></div>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+        class Count extends React.Component {
+            state = { count: 0 }
+
+            add = () => {
+                this.setState({ count: this.state.count + 1 })
+            }
+
+            death = () => {
+                ReactDOM.unmountComponentAtNode(document.getElementById('test'))
+            }
+
+            force = () => {
+                this.forceUpdate()
+            }
+
+            componentWillMount() {
+                console.log('---componentWillMount---');
+            }
+
+            componentDidMount() {
+                console.log('---componentDidMount---');
+            }
+
+            componentWillUnmount() {
+                console.log('---componentWillUnmount---');
+            }
+
+            shouldComponentUpdate() {
+                console.log('---shouldComponentUpdate---');
+                return true
+            }
+
+            componentWillUpdate() {
+                console.log('---componentWillUpdate---');
+            }
+
+            componentDidUpdate() {
+                console.log('---componentDidUpdate---');
+            }
+
+            render() {
+                console.log('---render---');
+                return (
+                    <div>
+                        <h2>當前求和為 : {this.state.count}</h2>
+                        <button onClick={this.add}>點我+1</button>&nbsp;
+                        <button onClick={this.death}>unmountComponent</button>&nbsp;
+                        <button onClick={this.force}>不更改任何狀態中的數據，強制更新</button>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<Count />, document.getElementById('test'))
+
+    </script>
+</body>
+
+</html>
