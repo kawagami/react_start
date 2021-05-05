@@ -55,3 +55,15 @@
     3. parent component
         1. componentWillReceiveProps 在**初次render 頁面的時候不會被call**
 
+- 20210505
+    1. in old lifecycle, componentWillMount & componentWillReceiveProps & componentWillUpdate 在16版被列入未來可能要加**UNSAFE_**前綴
+        1. componentWillMount : **掛載時**，constructor後，render前
+        2. componentWillReceiveProps : **更新時**，shouldComponentUpdate前
+        3. componentWillUpdate : **更新時**，shouldComponentUpdate後，render前
+    2. in new lifecycle, adding getDerivedStateFromProps & getSnapshotBeforeUpdate 在17版新增
+        1. getDerivedStateFromProps : **掛載時**，constructor後，render前。**更新時**，shouldComponentUpdate前
+        2. getSnapshotBeforeUpdate : **更新時**，render後，componentDidUpdate前
+
+
+
+
