@@ -64,6 +64,8 @@
         1. getDerivedStateFromProps : **掛載時**，constructor後，render前。**更新時**，shouldComponentUpdate前
         2. getSnapshotBeforeUpdate : **更新時**，render後，componentDidUpdate前
 
-
+- 20210506
+    1. getDerivedStateFromProps(props, state) : 
+        1. return obj 時會使state變成該obj ，如果return 的是接到的第一個參數props 就會使state變成props 的值並且無法修改
 
 
