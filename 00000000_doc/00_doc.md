@@ -68,4 +68,6 @@
     1. getDerivedStateFromProps(props, state) : 
         1. return obj 時會使state變成該obj ，如果return 的是接到的第一個參數props 就會使state變成props 的值並且無法修改
 
-
+- 20210509
+    1.  getSnapshotBeforeUpdate
+        1. 需要取得目前scroll高度時會用到
