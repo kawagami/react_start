@@ -78,3 +78,8 @@
             1. **render數量-1的效能浪費**(數量越大越多沒必要的浪費)
             2. 結構中包含輸入類的DOM的話，資料會錯位、不相符
         * 建議使用唯一的識別資料(ex:id)來當作key
+
+- 20210518
+    1. 在import {xxx} from yyy 的 {xxx} 不是解構賦值的用法，而是在yyy 裡面有多個export 的輸出，其中之一是 export class xxx 這種形式
+        - const {aaa} = bbb 這種才是解構賦值的用法
+            - [參考影片](https://youtu.be/DxNQObgXCTY?list=PLmOn9nNkQxJFJXLvkNsGsoCUxJLqyLGxu&t=906)
