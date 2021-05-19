@@ -83,3 +83,10 @@
     1. 在import {xxx} from yyy 的 {xxx} 不是解構賦值的用法，而是在yyy 裡面有多個export 的輸出，其中之一是 export class xxx 這種形式
         - const {aaa} = bbb 這種才是解構賦值的用法
             - [參考影片](https://youtu.be/DxNQObgXCTY?list=PLmOn9nNkQxJFJXLvkNsGsoCUxJLqyLGxu&t=906)
+
+- 20210519
+    1. module of css
+        * 在檔案名xxx.css 中間加入module 成為xxx.module.css 這種形式的話就能用import yyy from './路徑/xxx.module.css' 作為module import
+            - 要使用的話是以**className={yyy.類名}**這種形式使用
+
+
