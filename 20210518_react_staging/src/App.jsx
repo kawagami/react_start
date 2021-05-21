@@ -8,6 +8,8 @@ export default class App extends Component {
 
     state = {
         todos: [
+            { id: 1, name: '預設資料1', done: false },
+            { id: 2, name: '預設資料2', done: false },
 
         ]
     }
@@ -18,14 +20,22 @@ export default class App extends Component {
         this.setState({ todos: newTodos })
     }
 
+    updateTodo = (id, done) => {
+        const { todos } = this.state
+        const newTodos = todos.map((todoObj) => {
+            if (todoObj.id === id) return { ...todoObj, done: done }
+            else return todoObj
+        })
+        this.setState({ todos: newTodos })
+    }
+
     render() {
         const { todos } = this.state
-        console.log(this.state.todos);
         return (
             <div className="todo-container">
                 <div className="todo-wrap">
                     <Header addTodo={this.addTodo} objLength={this.state.todos.length} />
-                    <List todos={todos} />
+                    <List todos={todos} updateTodo={this.updateTodo} />
                     <Footer />
                 </div>
             </div>
