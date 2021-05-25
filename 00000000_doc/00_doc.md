@@ -89,4 +89,9 @@
         * 在檔案名xxx.css 中間加入module 成為xxx.module.css 這種形式的話就能用import yyy from './路徑/xxx.module.css' 作為module import
             - 要使用的話是以**className={yyy.類名}**這種形式使用
 
-
+- 20210525
+    1. 整理一下目前為止es6使用狀況
+        * array.reduce((previousValue, currentValue)={...logic},initValue)
+            - 適用**統計**、**計算**array的method
+        * array.filter((oneOfArray)=>{**這裡可以直接判斷oneOfArray的值以後返回符合的oneOfArray**})
+            - 適用**過濾**、**刪除**oneOfArray的method
