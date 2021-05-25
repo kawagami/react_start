@@ -14,10 +14,22 @@ export default class App extends Component {
         ]
     }
 
+    clearDoneItem = () => {
+        const { todos } = this.state
+        const countDone = todos.reduce((pre, cur) => pre + (cur.done ? 1 : 0), 0)
+        if (countDone && window.confirm('是否要刪除選擇的項目?')) {
+            const newTodos = todos.filter((todo) => !todo.done)
+            this.setState({ todos: newTodos })
+        }
+    }
+
     deleteTodo = (id) => {
         const { todos } = this.state
-        const newTodos = todos.filter((todo) => todo.id !== id)
-        this.setState({ todos: newTodos })
+        const targetName = todos.filter((todo) => todo.id === id)[0].name
+        if (window.confirm(`是否刪除 ${targetName}`)) {
+            const newTodos = todos.filter((todo) => todo.id !== id)
+            this.setState({ todos: newTodos })
+        }
     }
 
     addTodo = (todoObj) => {
@@ -50,7 +62,7 @@ export default class App extends Component {
                 <div className="todo-wrap">
                     <Header addTodo={this.addTodo} objLength={this.state.todos.length} />
                     <List todos={todos} updateTodo={this.updateTodo} deleteTodo={this.deleteTodo} />
-                    <Footer todos={todos} checkAllTodo={this.checkAllTodo} />
+                    <Footer todos={todos} checkAllTodo={this.checkAllTodo} clearDoneItem={this.clearDoneItem} />
                 </div>
             </div>
         )
