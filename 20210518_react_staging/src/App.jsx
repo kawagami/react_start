@@ -34,7 +34,7 @@ export default class App extends Component {
         })
         this.setState({ todos: newTodos })
     }
-
+    
     render() {
         const { todos } = this.state
         return (
@@ -42,7 +42,7 @@ export default class App extends Component {
                 <div className="todo-wrap">
                     <Header addTodo={this.addTodo} objLength={this.state.todos.length} />
                     <List todos={todos} updateTodo={this.updateTodo} deleteTodo={this.deleteTodo} />
-                    <Footer />
+                    <Footer todos={todos} />
                 </div>
             </div>
         )
