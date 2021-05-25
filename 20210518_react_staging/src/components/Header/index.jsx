@@ -11,7 +11,7 @@ export default class Header extends Component {
             return
         }
         if (keyCode !== 13) return
-        const todoObj = { id: this.props.objLength + 1, name: target.value, done: false }
+        const todoObj = { id: Math.floor(Math.random() * 1000000), name: target.value, done: false }
         this.props.addTodo(todoObj)
         target.value = ''
     }

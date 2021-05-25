@@ -65,35 +65,36 @@
             }
 
             computer() {
-
-                let amount = (this.state.priceSell - this.state.priceBuy) * this.state.stock
-                let got = Math.floor(this.state.priceSell * this.state.stock * (1 - ((this.state.fee * this.state.discount) + this.state.tax)))
-                let cost = Math.floor(this.state.priceBuy * this.state.stock * (1 + (this.state.fee * this.state.discount)))
-                let feeBuyAmount = Math.floor(this.state.priceBuy * this.state.stock * (this.state.fee * this.state.discount))
-                let feeSellAmount = Math.floor(this.state.priceSell * this.state.stock * (this.state.fee * this.state.discount))
+                const { priceBuy, fee, discount, priceSell, stock, tax } = this.state
+                let amount = (priceSell - priceBuy) * stock
+                let got = Math.floor(priceSell * stock * (1 - ((fee * discount) + tax)))
+                let cost = Math.floor(priceBuy * stock * (1 + (fee * discount)))
+                let feeBuyAmount = Math.floor(priceBuy * stock * (fee * discount))
+                let feeSellAmount = Math.floor(priceSell * stock * (fee * discount))
                 this.setState({
                     result: this.toCurrency(got - cost),
                     feeBuyAmount: this.toCurrency(feeBuyAmount),
                     feeSellAmount: this.toCurrency(feeSellAmount),
-                    taxAmount: this.toCurrency(Math.floor(this.state.priceSell * this.state.stock * this.state.tax)),
+                    taxAmount: this.toCurrency(Math.floor(priceSell * stock * tax)),
                     got: this.toCurrency(got),
                     cost: this.toCurrency(cost),
                 })
             }
 
             render() {
+                const { cost, got, feeBuyAmount, feeSellAmount, taxAmount, result, computerButton } = this.state
                 return (
                     <div className="container">
                         <span>買價<input type="number" onChange={this.buyHandle.bind(this)} /></span>
                         <span>賣價<input type="number" onChange={this.sellHandle.bind(this)} /></span>
                         <span>股數<input type="number" onChange={this.stockHandle.bind(this)} /></span>
-                        <div className="cost">購入成本 : {this.state.cost}</div>
-                        <div className="got">賣出取得 : {this.state.got}</div>
-                        <div className="fee-buy">買入手續費 : {this.state.feeBuyAmount}</div>
-                        <div className="fee-sell">賣出手續費 : {this.state.feeSellAmount}</div>
-                        <div className="tax">交易稅 : {this.state.taxAmount}</div>
-                        <div className="result">淨利 : {this.state.result}</div>
-                        <button onClick={this.computer.bind(this)}>{this.state.computerButton}</button>
+                        <div className="cost">購入成本 : {cost}</div>
+                        <div className="got">賣出取得 : <span style={{ color: got > cost ? 'red' : 'green' }}>{got}</span></div>
+                        <div className="fee-buy">買入手續費 : {feeBuyAmount}</div>
+                        <div className="fee-sell">賣出手續費 : {feeSellAmount}</div>
+                        <div className="tax">交易稅 : {taxAmount}</div>
+                        <div className="result">淨利 : <span style={{ color: result > 0 ? 'red' : 'green' }}>{result}</span></div>
+                        <button onClick={this.computer.bind(this)}>{computerButton}</button>
                     </div>
                 )
             }
